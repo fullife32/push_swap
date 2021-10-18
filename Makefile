@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/05/26 17:20:04 by eassouli          #+#    #+#              #
-#    Updated: 2021/06/16 16:58:44 by eassouli         ###   ########.fr        #
+#    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
+#    Updated: 2021/10/18 17:54:50 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,44 +20,49 @@ MAKE	=	/usr/bin/make -C
 
 RM	=	/bin/rm -rf
 
-INCLUDE	=	-I includes/. \
-	-I $(LIBFT)
+INCLUDE	=	-I includes/.
 
 PATH_S	=	srcs/
 
 PATH_B	=	build/
 
-LIBFT	=	libft
+# Main functions
+SRCS	+=	main/main.c \
+			main/check_list.c
 
-SRCS	+=	main.c
+# First Sort functions
+SRCS	+=	first_sort/sort_algo.c
 
-# SRCS	+=	
+# Error functions
+SRCS	+=	error/error.c
 
 OBJS	=	$(addprefix $(PATH_B), $(SRCS:.c=.o))
 
-CFLAGS	=	 -g -Wall -Wextra -Werror $(INCLUDE)
-
-DFLAGS	=	-Llibft -lft
+CFLAGS	=	-g -Wall -Wextra -Werror $(INCLUDE)
 
 all:	$(PATH_B) $(NAME)
 
 $(NAME):	$(OBJS)
-	$(MAKE) $(LIBFT)
-	$(CC) $(OBJS) $(CFLAGS) $(DFLAGS) -o $(NAME)
+	$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
+
+PATH_DIR	=	main \
+				first_sort \
+				error
 
 $(PATH_B):
 	$(MKDIR) $(PATH_B)
+	for dir in $(PATH_DIR) ; do \
+		$(MKDIR) $(PATH_B)$$dir ; \
+	done
 
 $(PATH_B)%.o:	$(PATH_S)%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	$(MAKE) $(LIBFT) clean
 	$(RM) $(PATH_B)
 
 fclean:	clean
 	$(RM) $(NAME)
-	$(MAKE) $(LIBFT) fclean
 
 re:	fclean all
 
