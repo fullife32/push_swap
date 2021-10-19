@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 10:32:40 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 13:52:23 by eassouli         ###   ########.fr       */
+/*   Created: 2019/10/14 16:44:15 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/19 13:47:42 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	t_tab	tab;
+	unsigned char	*dest;
+	unsigned char	*source;
+	size_t			i;
 
-	tab = (t_tab){0, NULL, NULL};
-	if (ac < 2) /// Return error if no num ?
-		return (0);
-	if (initial_check(av, &tab) == -1)
-		return (error(&tab));
-	if (first_sort(av, &tab) == -1)
-		return (error(&tab));
-	write(1, "OK\n", 3); /// To remove
-	free_push_swap(&tab);
-	return (0);
+	if (!dst && !src && n > 0)
+		return (NULL);
+	dest = dst;
+	source = (unsigned char *)src;
+	i = 0;
+	while (n-- != 0)
+	{
+		dest[i] = source[i];
+		i++;
+	}
+	return (dst);
 }

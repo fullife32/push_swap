@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 12:08:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:24:56 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 typedef struct s_tab
 {
 	int	size;
-	int	*tab;
+	int	*sort_tab;
+	int	*tmp_tab;
 }				t_tab;
 
 // Initial check functions
@@ -34,6 +35,7 @@ int		check_list(char **av, t_tab *tab);
 // First sort functions
 int		first_sort(char **av, t_tab *tab);
 int		create_tab(char **av, t_tab *tab);
+void	insertion_sort(t_tab *tab);
 
 // Free fuctions
 void	free_push_swap(t_tab *tab);
@@ -43,6 +45,7 @@ int		error(t_tab *tab);
 
 // Utils functions
 long	ft_atol(const char *str);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/19 12:08:26 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/19 13:49:56 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRCS	+=	initial_check/initial_check.c \
 
 # First Sort functions
 SRCS	+=	first_sort/first_sort.c \
-			first_sort/create_tab.c \
+			first_sort/create_tabs.c \
 			first_sort/insertion_sort.c
 
 # Free functions
@@ -46,6 +46,7 @@ SRCS	+=	error/error.c
 
 # Utils functions
 SRCS	+=	utils/ft_atol.c \
+			utils/ft_memcpy.c \
 			utils/ft_memset.c
 
 OBJS	=	$(addprefix $(PATH_B), $(SRCS:.c=.o))
