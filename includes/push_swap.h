@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 14:24:56 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:01:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,32 @@ typedef struct s_tab
 	int	*tmp_tab;
 }				t_tab;
 
+typedef struct s_stack
+{
+	int	total_a;
+	int	total_b;
+	int	mid_a;
+	int	mid_b;
+}				t_stack;
+
+typedef struct s_elem
+{
+	int	pos;
+	int	target;
+	int	dist;
+	char	stack;
+	struct s_elem	*next;
+}				t_elem;
+
 // Initial check functions
 int		initial_check(char **av, t_tab *tab);
-int		check_list(char **av, t_tab *tab);
+int		check_args(char **av, t_tab *tab);
 
 // First sort functions
 int		first_sort(char **av, t_tab *tab);
 int		create_tab(char **av, t_tab *tab);
 void	insertion_sort(t_tab *tab);
+int		double_num(t_tab *tab);
 
 // Free fuctions
 void	free_push_swap(t_tab *tab);

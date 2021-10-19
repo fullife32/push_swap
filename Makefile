@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/19 13:49:56 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/19 16:14:20 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,9 @@ PATH_B	=	build/
 SRCS	+=	main/main.c
 
 # Initial check functions
-SRCS	+=	initial_check/initial_check.c \
-			initial_check/check_list.c
+SRCS	+=	check/initial_check.c \
+			check/check_args.c \
+			check/double_num.c
 
 # First Sort functions
 SRCS	+=	first_sort/first_sort.c \
@@ -60,7 +61,7 @@ $(NAME):	$(OBJS)
 
 PATH_DIR	=	main \
 				first_sort \
-				initial_check \
+				check \
 				free \
 				error \
 				utils

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_list.c                                       :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:53:08 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 12:24:29 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:10:57 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	is_only_num(char *number)
 	return (count);
 }
 
-int	check_list(char **av, t_tab *tab)
+int	check_args(char **av, t_tab *tab)
 {
 	int	i;
 	int	count;
