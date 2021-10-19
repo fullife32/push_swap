@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/18 17:54:50 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/19 12:08:26 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,26 @@ PATH_S	=	srcs/
 PATH_B	=	build/
 
 # Main functions
-SRCS	+=	main/main.c \
-			main/check_list.c
+SRCS	+=	main/main.c
+
+# Initial check functions
+SRCS	+=	initial_check/initial_check.c \
+			initial_check/check_list.c
 
 # First Sort functions
-SRCS	+=	first_sort/sort_algo.c
+SRCS	+=	first_sort/first_sort.c \
+			first_sort/create_tab.c \
+			first_sort/insertion_sort.c
+
+# Free functions
+SRCS	+=	free/free_push_swap.c
 
 # Error functions
 SRCS	+=	error/error.c
+
+# Utils functions
+SRCS	+=	utils/ft_atol.c \
+			utils/ft_memset.c
 
 OBJS	=	$(addprefix $(PATH_B), $(SRCS:.c=.o))
 
@@ -47,7 +59,10 @@ $(NAME):	$(OBJS)
 
 PATH_DIR	=	main \
 				first_sort \
-				error
+				initial_check \
+				free \
+				error \
+				utils
 
 $(PATH_B):
 	$(MKDIR) $(PATH_B)

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   initial_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 17:50:57 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 12:08:49 by eassouli         ###   ########.fr       */
+/*   Created: 2021/10/19 09:26:18 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/19 12:11:56 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(t_tab *tab)
+int	initial_check(char **av, t_tab *tab)
 {
-	free_push_swap(tab);
-	write(1, ERROR, 6);
-	return (-1);
+	if (check_list(av, tab) == -1) /// move to main if no other functions
+		return (-1);
+	return (0);
 }

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 17:50:57 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 12:08:49 by eassouli         ###   ########.fr       */
+/*   Created: 2019/10/12 16:21:38 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/19 10:19:02 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(t_tab *tab)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	free_push_swap(tab);
-	write(1, ERROR, 6);
-	return (-1);
+	unsigned char	*bytes;
+
+	bytes = b;
+	while (len-- != 0)
+		bytes[len] = c;
+	return (b);
 }
