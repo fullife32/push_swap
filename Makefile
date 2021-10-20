@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/20 14:12:06 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/20 17:55:36 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,12 @@ SRCS	+=	init_stack/init_stack.c \
 			init_stack/create_stack.c \
 			init_stack/target_stack.c
 
+# Moves functions
+SRCS	+=	moves/swap.c \
+			moves/push.c \
+			moves/rotate.c \
+			moves/reverse_rotate.c
+
 # Free functions
 SRCS	+=	free/free_push_swap.c
 
@@ -73,6 +79,7 @@ PATH_DIR	=	main \
 				check \
 				first_sort \
 				init_stack \
+				moves \
 				free \
 				error \
 				utils

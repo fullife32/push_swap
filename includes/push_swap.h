@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 14:38:39 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:53:28 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,15 @@ int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
 
+// Moves functions
+void	swap(t_elem **first, int size);
+void	double_swap(t_stack *stack);
+
+
+
+
+
+
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);
 
@@ -130,6 +139,7 @@ int		error(t_tab *tab, t_stack *stack);
 // Utils functions
 long	ft_atol(const char *str);
 void	ft_lstadd_back(t_elem **alst, t_elem *new);
+void	ft_lstadd_front(t_elem **alst, t_elem *new);
 void	ft_lstclear(t_elem **lst);
 void	ft_lstdelone(t_elem *lst);
 t_elem	*ft_lstlast(t_elem *lst);

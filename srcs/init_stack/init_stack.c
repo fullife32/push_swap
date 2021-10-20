@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 14:10:04 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 14:21:51 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:03:21 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int	init_stack(t_tab *tab, t_stack *stack)
 		return (-1);
 	stack->first_a = stack->a;
 	target_stack(tab, stack->first_a);
+	for (t_elem *tmp = stack->first_a; tmp; tmp = tmp->next)
+		printf("%p : %d -> %d\n", tmp, tmp->pos, tmp->target);
+	swap(&stack->first_b, stack->size_a);
+	printf("\nSWAP\n\n");
 	for (t_elem *tmp = stack->first_a; tmp; tmp = tmp->next)
 		printf("%p : %d -> %d\n", tmp, tmp->pos, tmp->target);
 	return (0);
