@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:32:40 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 14:48:59 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:05:25 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	main(int ac, char **av)
 	int		sort;
 	t_tab	tab;
 	t_stack	stack;
-	// t_move	move;
+	t_move	move;
 
+	(void)move; // remove
 	tab = (t_tab){0, NULL, NULL};
 	stack = (t_stack){0, 0, 0, NULL, NULL, NULL, NULL};
 	if (ac < 2) /// Return error if no num ?
