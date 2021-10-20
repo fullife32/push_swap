@@ -6,20 +6,12 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 12:18:32 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:38:39 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-/*
-** Defines **
-*/
-
-# define ERROR "Error\n"
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
 
 /*
 ** Includes **
@@ -30,14 +22,36 @@
 # include <unistd.h>
 
 /*
+** Defines **
+*/
+
+# define ERROR "Error\n"
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
+enum e_move {
+	MOVE_SA,
+	MOVE_SB,
+	MOVE_SS,
+	MOVE_PA,
+	MOVE_PB,
+	MOVE_RA,
+	MOVE_RB,
+	MOVE_RR,
+	MOVE_RRA,
+	MOVE_RRB,
+	MOVE_RRR
+};
+
+/*
 ** Structures **
 */
 
 typedef struct s_tab
 {
 	int	size;
-	int	*sort_tab;
-	int	*tmp_tab;
+	int	*sort;
+	int	*tmp;
 }				t_tab;
 
 typedef struct s_elem
@@ -49,6 +63,7 @@ typedef struct s_elem
 
 typedef struct s_stack
 {
+	int				dst;
 	int				size_a;
 	int				size_b;
 	struct s_elem	*a;
@@ -101,8 +116,10 @@ int		create_tab(char **av, t_tab *tab);
 void	insertion_sort(t_tab *tab);
 int		double_num(t_tab *tab);
 
-// Create stack functions
+// Init stack functions
+int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
+void	target_stack(t_tab *tab, t_elem *elem);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);

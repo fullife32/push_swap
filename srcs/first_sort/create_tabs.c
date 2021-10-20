@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:35:44 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 10:20:33 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:25:12 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	tabdup(t_tab *tab)
 {
-	tab->tmp_tab = malloc(sizeof(int) * tab->size);
-	if (tab->tmp_tab == NULL)
+	tab->tmp = malloc(sizeof(int) * tab->size);
+	if (tab->tmp == NULL)
 		return (-1);
-	ft_memcpy(tab->tmp_tab, tab->sort_tab, tab->size * sizeof(int));
+	ft_memcpy(tab->tmp, tab->sort, tab->size * sizeof(int));
 	return (0);
 }
 
@@ -51,7 +51,7 @@ int	set_numbers(char **av, t_tab *tab)
 			tmp = atol(av[i] + j);
 			if (tmp > INT_MAX || tmp < INT_MIN)
 				return (-1);
-			tab->sort_tab[n] = tmp;
+			tab->sort[n] = tmp;
 			j = next_number(j, av[i]);
 			n++;
 		}
@@ -62,8 +62,8 @@ int	set_numbers(char **av, t_tab *tab)
 
 int	create_tab(char **av, t_tab *tab)
 {
-	tab->sort_tab = malloc(sizeof(int) * tab->size);
-	if (tab->sort_tab == NULL)
+	tab->sort = malloc(sizeof(int) * tab->size);
+	if (tab->sort == NULL)
 		return (-1);
 	if (set_numbers(av, tab) == -1)
 		return (-1);

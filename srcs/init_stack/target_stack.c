@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_push_swap.c                                   :+:      :+:    :+:   */
+/*   target_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 12:05:34 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 14:29:34 by eassouli         ###   ########.fr       */
+/*   Created: 2021/10/20 12:16:23 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/20 14:25:13 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_elem **first)
+int	target_pos(t_tab *tab, int pos)
 {
-	if (*first)
-		ft_lstclear(first);
-}
+	int	i;
 
-void	free_tab(int *tab)
-{
-	if (tab)
-		free(tab);
-	tab = NULL;
-}
-
-int	free_push_swap(t_tab *tab, t_stack *stack)
-{
-	free_tab(tab->sort);
-	free_tab(tab->tmp);
-	free_stack(&stack->first_a);
-	free_stack(&stack->first_b);
+	i = 0;
+	while (i < tab->size)
+	{
+		if (tab->tmp[pos] == tab->sort[i])
+			return (i);
+		i++;
+	}
 	return (0);
+}
+
+void	target_stack(t_tab *tab, t_elem *elem)
+{
+	while (elem)
+	{
+		elem->target = target_pos(tab, elem->pos);
+		elem = elem->next;
+	}
 }

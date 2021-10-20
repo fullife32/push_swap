@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:41:06 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 14:50:04 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:25:32 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ void	insertion_sort(t_tab *tab)
 	i = 0;
 	while (i < tab->size - 1)
 	{
-		if (tab->sort_tab[i + 1] < tab->sort_tab[i])
+		if (tab->sort[i + 1] < tab->sort[i])
 		{
 			j = i;
-			x = tab->sort_tab[j + 1];
-			while (j > -1 && x < tab->sort_tab[j])
+			x = tab->sort[j + 1];
+			while (j > -1 && x < tab->sort[j])
 			{
-				tab->sort_tab[j + 1] = tab->sort_tab[j];
+				tab->sort[j + 1] = tab->sort[j];
 				j--;
 			}
-			tab->sort_tab[j + 1] = x;
+			tab->sort[j + 1] = x;
 		}
 		i++;
 	}

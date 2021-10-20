@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/20 12:17:13 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/20 14:12:06 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,10 @@ SRCS	+=	first_sort/first_sort.c \
 			first_sort/create_tabs.c \
 			first_sort/insertion_sort.c
 
-# Create Stack functions
-SRCS	+=	create_stack/create_stack.c \
-			create_stack/target_stack.c
+# Init Stack functions
+SRCS	+=	init_stack/init_stack.c \
+			init_stack/create_stack.c \
+			init_stack/target_stack.c
 
 # Free functions
 SRCS	+=	free/free_push_swap.c
@@ -71,7 +72,7 @@ $(NAME):	$(OBJS)
 PATH_DIR	=	main \
 				check \
 				first_sort \
-				create_stack \
+				init_stack \
 				free \
 				error \
 				utils
