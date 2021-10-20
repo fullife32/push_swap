@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/19 16:14:20 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/20 12:17:13 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,10 @@ SRCS	+=	first_sort/first_sort.c \
 			first_sort/create_tabs.c \
 			first_sort/insertion_sort.c
 
+# Create Stack functions
+SRCS	+=	create_stack/create_stack.c \
+			create_stack/target_stack.c
+
 # Free functions
 SRCS	+=	free/free_push_swap.c
 
@@ -47,6 +51,11 @@ SRCS	+=	error/error.c
 
 # Utils functions
 SRCS	+=	utils/ft_atol.c \
+			utils/ft_lstadd_back.c \
+			utils/ft_lstclear.c \
+			utils/ft_lstdelone.c \
+			utils/ft_lstlast.c \
+			utils/ft_lstnew.c \
 			utils/ft_memcpy.c \
 			utils/ft_memset.c
 
@@ -60,8 +69,9 @@ $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
 PATH_DIR	=	main \
-				first_sort \
 				check \
+				first_sort \
+				create_stack \
 				free \
 				error \
 				utils

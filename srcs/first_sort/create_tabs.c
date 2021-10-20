@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:35:44 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/19 14:17:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:20:33 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	dup_tab(t_tab *tab)
+int	tabdup(t_tab *tab)
 {
 	tab->tmp_tab = malloc(sizeof(int) * tab->size);
 	if (tab->tmp_tab == NULL)
@@ -67,7 +67,7 @@ int	create_tab(char **av, t_tab *tab)
 		return (-1);
 	if (set_numbers(av, tab) == -1)
 		return (-1);
-	if (dup_tab(tab) == -1)
+	if (tabdup(tab) == -1)
 		return (-1);
 	return (0);
 }
