@@ -59,6 +59,7 @@ SRCS	+=	error/error.c
 # Utils functions
 SRCS	+=	utils/ft_atol.c \
 			utils/ft_lstadd_back.c \
+			utils/ft_lstadd_front.c \
 			utils/ft_lstclear.c \
 			utils/ft_lstdelone.c \
 			utils/ft_lstlast.c \

@@ -124,7 +124,7 @@ void	target_stack(t_tab *tab, t_elem *elem);
 // Moves functions
 void	swap(t_elem **first, int size);
 void	double_swap(t_stack *stack);
-
+void 	push(t_elem **from, t_elem **to);
 
 
 
