@@ -12,12 +12,11 @@
 
 #include "push_swap.h"
 
-t_elem	*init_elem(int pos)
+t_elem	*init_elem(void)
 {
 	t_elem	*elem;
 
 	elem = ft_lstnew();
-	elem->pos = pos;
 	return (elem);
 }
 
@@ -27,15 +26,14 @@ t_elem	*create_stack(t_tab *tab, t_stack *stack)
 	t_elem	*first;
 	t_elem	*elem;
 
-	(void)stack;
 	i = 1;
-	elem = init_elem(0);
+	elem = init_elem();
 	if (elem == NULL)
 		return (NULL);
 	first = elem;
 	while (i < tab->size)
 	{
-		elem->next = init_elem(i);
+		elem->next = init_elem();
 		if (elem->next == NULL)
 		{
 			stack->first_a = first;

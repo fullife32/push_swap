@@ -17,14 +17,12 @@ void	swap(t_elem **first, int size)
 	t_elem	*elem_tmp;
 	int		target_tmp;
 
-	target_tmp = 0;
-	if (*first && size > 1)
-	{
-		elem_tmp = *first;
-		target_tmp = elem_tmp->next->target;
-		elem_tmp->next->target = elem_tmp->target;
-		elem_tmp->target = target_tmp;
-	}
+	if (*first == NULL || size < 2)
+		return ;
+	elem_tmp = *first;
+	target_tmp = elem_tmp->next->target;
+	elem_tmp->next->target = elem_tmp->target;
+	elem_tmp->target = target_tmp;
 }
 
 void	double_swap(t_stack *stack)

@@ -56,7 +56,6 @@ typedef struct s_tab
 
 typedef struct s_elem
 {
-	int				pos;
 	int				target;
 	struct s_elem	*next;
 }				t_elem;
@@ -125,10 +124,10 @@ void	target_stack(t_tab *tab, t_elem *elem);
 void	swap(t_elem **first, int size);
 void	double_swap(t_stack *stack);
 void 	push(t_elem **from, t_elem **to);
-
-
-
-
+void	rotate(t_elem **first, int  size);
+void    double_rotate(t_stack *stack);
+void	reverse_rotate(t_elem **first, int  size);
+void    double_reverse_rotate(t_stack *stack);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);

@@ -28,9 +28,13 @@ int	target_pos(t_tab *tab, int pos)
 
 void	target_stack(t_tab *tab, t_elem *elem)
 {
+	int	i;
+
+	i = 0;
 	while (elem)
 	{
-		elem->target = target_pos(tab, elem->pos);
+		elem->target = target_pos(tab, i);
 		elem = elem->next;
+		i++;
 	}
 }
