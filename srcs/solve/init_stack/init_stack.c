@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 14:10:04 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 18:03:21 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:11:03 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ int	init_stack(t_tab *tab, t_stack *stack)
 	target_stack(tab, stack->first_a);
 	// swap(&stack->first_a, stack->size_a);
 	// push(&stack->first_a, &stack->first_b);
-	print_stacks(stack);
-	for (int j = 0; j < 3; j++)
-	{
-		printf("\n===== PUSH B =====\n\n");
-		push(&stack->first_a, &stack->first_b);
-		if (stack->size_a > 0)
-			stack->size_a--;
-		stack->size_b++;
-		print_stacks(stack);
-	}
-	for (int j = 0; j < 5; j++)
-	{
-		printf("\n===== REVERSE ROTATE A && B =====\n\n");
-		double_reverse_rotate(stack);
-		print_stacks(stack);
-	}
+	// print_stacks(stack);
+	// for (int j = 0; j < 3; j++)
+	// {
+	// 	printf("\n===== PUSH B =====\n\n");
+	// 	push(&stack->first_a, &stack->first_b);
+	// 	if (stack->size_a > 0)
+	// 		stack->size_a--;
+	// 	stack->size_b++;
+	// 	print_stacks(stack);
+	// }
+	// for (int j = 0; j < 5; j++)
+	// {
+	// 	printf("\n===== REVERSE ROTATE A && B =====\n\n");
+	// 	double_reverse_rotate(stack);
+	// 	print_stacks(stack);
+	// }
 	// for (int j = 0; j < 5; j++)
 	// {
 	// 	printf("\nROTATE B\n\n");

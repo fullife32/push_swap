@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 17:53:28 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:59:27 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,14 @@ void	target_stack(t_tab *tab, t_elem *elem);
 // Moves functions
 void	swap(t_elem **first, int size);
 void	double_swap(t_stack *stack);
-void 	push(t_elem **from, t_elem **to);
-void	rotate(t_elem **first, int  size);
-void    double_rotate(t_stack *stack);
-void	reverse_rotate(t_elem **first, int  size);
-void    double_reverse_rotate(t_stack *stack);
+void	push(t_elem **from, t_elem **to);
+void	rotate(t_elem **first, int size);
+void	double_rotate(t_stack *stack);
+void	reverse_rotate(t_elem **first, int size);
+void	double_reverse_rotate(t_stack *stack);
+
+// Solve functions
+int		solve(t_tab *tab, t_stack *stack, t_move *move);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);
