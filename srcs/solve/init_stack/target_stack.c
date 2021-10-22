@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:16:23 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 14:25:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 14:28:00 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	target_pos(t_tab *tab, int pos)
 	i = 0;
 	while (i < tab->size)
 	{
-		if (tab->tmp[pos] == tab->sort[i])
+		if (tab->unsort[pos] == tab->sort[i])
 			return (i);
 		i++;
 	}

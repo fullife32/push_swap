@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/21 18:59:27 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 15:09:20 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,20 @@ enum e_move {
 ** Structures **
 */
 
-typedef struct s_tab
+typedef struct s_seq
 {
 	int	size;
-	int	*sort;
+	int	tmp_size;
+	int	*a;
 	int	*tmp;
+}				t_seq;
+
+typedef struct s_tab
+{
+	int		size;
+	int		*sort;
+	int		*unsort;
+	t_seq	seq;
 }				t_tab;
 
 typedef struct s_elem
@@ -105,20 +114,35 @@ typedef struct s_move // Transformer en enum et define chaque element
 ** Prototypes **
 */
 
-// Initial check functions
+// Initial Check functions
 int		initial_check(char **av, t_tab *tab);
 int		check_args(char **av, t_tab *tab);
 
-// First sort functions
+// First Sort functions
 int		first_sort(char **av, t_tab *tab);
 int		create_tab(char **av, t_tab *tab);
+int		*tab_alloc(int size);
+int		*tabdup(int *dest, int *source, int size);
 void	insertion_sort(t_tab *tab);
 int		double_num(t_tab *tab);
 
-// Init stack functions
+// Solve functions
+int		solve(t_tab *tab, t_stack *stack, t_move *move);
+
+//	Init Stack functions
 int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
+
+//	Sort functions
+int		stack_is_sorted(t_elem **first, int size);
+
+//	Distance Calculation functions
+
+//	Push To A functions
+
+//	Push To B functions
+int		longest_sequence(t_seq *seq, t_tab *tab);
 
 // Moves functions
 void	swap(t_elem **first, int size);
@@ -128,9 +152,6 @@ void	rotate(t_elem **first, int size);
 void	double_rotate(t_stack *stack);
 void	reverse_rotate(t_elem **first, int size);
 void	double_reverse_rotate(t_stack *stack);
-
-// Solve functions
-int		solve(t_tab *tab, t_stack *stack, t_move *move);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);

@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/21 18:49:22 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/22 15:03:29 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ PATH_B	=	build/
 # Main functions
 SRCS	+=	main/main.c
 
-# Initial check functions
+# Initial Check functions
 SRCS	+=	check/initial_check.c \
 			check/check_args.c \
 			check/double_num.c
@@ -46,6 +46,16 @@ SRCS	+=	solve/solve.c
 SRCS	+=	solve/init_stack/init_stack.c \
 			solve/init_stack/create_stack.c \
 			solve/init_stack/target_stack.c
+
+#	Sort functions
+SRCS	+=	solve/sort/sort.c
+
+#	Distance Calculation functions
+
+#	Push To A functions
+
+#	Push To B functions
+SRCS	+=	solve/push_to_b/sequence.c
 
 # Moves functions
 SRCS	+=	moves/swap.c \
@@ -82,8 +92,12 @@ $(NAME):	$(OBJS)
 PATH_DIR	=	main \
 				check \
 				first_sort \
-				moves \
 				solve/init_stack \
+				solve/sort \
+				solve/dist_calculation \
+				solve/push_to_a \
+				solve/push_to_b \
+				moves \
 				free \
 				error \
 				utils

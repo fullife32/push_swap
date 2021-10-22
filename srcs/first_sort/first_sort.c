@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:42:15 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 17:57:27 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 14:36:50 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_tab *tab)
 	i = 0;
 	if (tab->size == 1)
 		return (1);
-	while (i < tab->size - 1 && tab->tmp[i] < tab->tmp[i + 1])
+	while (i < tab->size - 1 && tab->unsort[i] < tab->unsort[i + 1])
 		i++;
 	if (i == tab->size - 1)
 		return (1);
@@ -32,12 +32,17 @@ int	first_sort(char **av, t_tab *tab)
 		return (-1);
 	if (is_sorted(tab) == 1)
 		return (1);
+	tab->sort = tab_alloc(tab->size);
+	if (tab->sort == NULL)
+		return (-1);
+	tab->sort = tabdup(tab->sort, tab->unsort, tab->size);
 	insertion_sort(tab);
 	if (double_num(tab) == -1)
 		return (-1);
+	// printf("UNSORTED\n");
 	// for (int a = 0; a < tab->size; a++)
-	// 	printf("%d : %d\n", a, tab->tmp[a]);
-	// printf("\n");
+	// 	printf("%d : %d\n", a, tab->unsort[a]);
+	// printf("SORTED\n");
 	// for (int a = 0; a < tab->size; a++)
 	// 	printf("%d : %d\n", a, tab->sort[a]);
 	return (0);

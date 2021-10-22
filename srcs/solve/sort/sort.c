@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_push_swap.c                                   :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 12:05:34 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 14:28:05 by eassouli         ###   ########.fr       */
+/*   Created: 2021/10/22 14:43:33 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/22 14:48:28 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_elem **first)
+int	stack_is_sorted(t_elem **first, int size)
 {
-	if (*first)
-		ft_lstclear(first);
-}
-
-void	free_tab(int *tab)
-{
-	if (tab)
-		free(tab);
-	tab = NULL;
-}
-
-int	free_push_swap(t_tab *tab, t_stack *stack)
-{
-	free_tab(tab->sort);
-	free_tab(tab->unsort);
-	free_tab(tab->seq.a);
-	free_tab(tab->seq.tmp);
-	free_stack(&stack->first_a);
-	free_stack(&stack->first_b);
-	return (0);
+	int		old_target;
+	t_elem	*elem;
+	
+	if (*first == NULL || size != 0)
+		return (0);
+	elem = *first;
+	old_target = elem->target;
+	while (elem)
+	{
+		if (old_target > elem->target)
+			return (0);
+		old_target = elem->target;
+		elem = elem->next;
+	}
+	return (1);
 }
