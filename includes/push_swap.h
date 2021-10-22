@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 15:09:20 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 16:26:07 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,12 +146,10 @@ int		longest_sequence(t_seq *seq, t_tab *tab);
 
 // Moves functions
 void	swap(t_elem **first, int size);
-void	double_swap(t_stack *stack);
-void	push(t_elem **from, t_elem **to);
-void	rotate(t_elem **first, int size);
-void	double_rotate(t_stack *stack);
-void	reverse_rotate(t_elem **first, int size);
-void	double_reverse_rotate(t_stack *stack);
+void	do_swap(t_stack *stack, int move);
+void	do_push(t_stack *stack, int move);
+void	do_rotate(t_stack *stack, int move);
+void	do_reverse_rotate(t_stack *stack, int move);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);

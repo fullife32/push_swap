@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:39:12 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/21 19:06:23 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 16:31:50 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_elem **from, t_elem **to)
+void	push(t_elem **to, t_elem **from)
 {
 	t_elem	*elem_push;
 	t_elem	*tmp;
@@ -32,5 +32,23 @@ void	push(t_elem **from, t_elem **to)
 		tmp = elem_push->next;
 		*from = tmp;
 		ft_lstadd_front(to, elem_push);
+	}
+}
+
+void	do_push(t_stack *stack, int move)
+{
+	if (move == MOVE_PA)
+	{
+		push(&stack->first_a, &stack->first_b);
+		stack->size_a++;
+		stack->size_b--;
+		write(1, "pa\n", 3);
+	}
+	else if (move == MOVE_PB)
+	{
+		push(&stack->first_b, &stack->first_a);
+		stack->size_a--;
+		stack->size_b++;
+		write(1, "pb\n", 3);
 	}
 }

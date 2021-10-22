@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 18:12:46 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 15:10:01 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 16:27:39 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	solve(t_tab *tab, t_stack *stack, t_move *move)
 		return (-1);
 	while (stack_is_sorted(&stack->first_a, stack->size_b) == 0)
 	{
-		swap(&stack->first_a, stack->size_a);
-		write(1, "sa\n", 3);
+		do_push(stack, MOVE_PB);
+		do_rotate(stack, MOVE_RA);
+		do_push(stack, MOVE_PA);
+		do_reverse_rotate(stack, MOVE_RRA);
 	}
 	// tab->seq.size = tab->size;
 	// tabdup(tab->seq.a, tab->unsort, tab->size);
