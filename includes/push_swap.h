@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 16:26:07 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/22 16:58:05 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ void	target_stack(t_tab *tab, t_elem *elem);
 int		stack_is_sorted(t_elem **first, int size);
 
 //	Distance Calculation functions
+int		dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b);
 
 //	Push To A functions
 
