@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 16:58:05 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:46:34 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ enum e_move {
 typedef struct s_seq
 {
 	int	size;
-	int	tmp_size;
-	int	*a;
+	int	*lis;
 	int	*tmp;
 }				t_seq;
 
@@ -143,7 +142,8 @@ int		dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b);
 //	Push To A functions
 
 //	Push To B functions
-int		longest_sequence(t_seq *seq, t_tab *tab);
+int		push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
+int		longest_sequence(t_seq *seq, t_tab *tab, int size);
 
 // Moves functions
 void	swap(t_elem **first, int size);

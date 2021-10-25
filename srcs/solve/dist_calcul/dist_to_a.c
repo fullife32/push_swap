@@ -6,16 +6,16 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:36:16 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 17:55:11 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:33:07 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	number_of_moves(int index_a, int index_b, int size_a, int size_b)
-{
+// int	number_of_moves(int index_a, int index_b, int size_a, int size_b)
+// {
 
-}
+// }
 
 int	find_a_pos(t_elem *first_a, int size_a, int target)
 {
@@ -23,6 +23,7 @@ int	find_a_pos(t_elem *first_a, int size_a, int target)
 	t_elem	*stack_a;
 
 	pos = 0;
+	(void)size_a;
 	stack_a = first_a;
 	while (stack_a)
 	{

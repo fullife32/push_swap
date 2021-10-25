@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/22 16:45:56 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/25 16:59:58 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ SRCS	+=	solve/dist_calcul/dist_to_a.c
 #	Push To A functions
 
 #	Push To B functions
-SRCS	+=	solve/push_to_b/sequence.c
+SRCS	+=	solve/push_to_b/push_loop_b.c \
+			solve/push_to_b/sequence.c
 
 # Moves functions
 SRCS	+=	moves/swap.c \
