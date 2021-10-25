@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:35:44 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 14:31:59 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:41:10 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	*tab_alloc(int size)
 {
-	int *tab;
-	
+	int	*tab;
+
 	tab = malloc(sizeof(int) * size);
 	return (tab);
 }

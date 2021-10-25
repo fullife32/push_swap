@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:40:30 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:36:53 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:42:14 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_target(int target, int size, int *lis)
 
 int	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack) // do reverse if necessary
 {
-	int	i;
+	int		i;
 	t_elem	*elem;
 
 	if (longest_sequence(seq, tab, tab->size) == -1)

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:39:09 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 16:21:58 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:41:34 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	double_rotate(t_stack *stack)
 	rotate(&stack->first_a, stack->size_a);
 	rotate(&stack->first_b, stack->size_b);
 }
-
 
 void	do_rotate(t_stack *stack, int move)
 {

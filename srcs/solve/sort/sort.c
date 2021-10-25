@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:33 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 14:48:28 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:42:36 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	stack_is_sorted(t_elem **first, int size)
 {
 	int		old_target;
 	t_elem	*elem;
-	
+
 	if (*first == NULL || size != 0)
 		return (0);
 	elem = *first;

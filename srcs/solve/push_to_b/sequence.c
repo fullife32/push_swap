@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:57:26 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 16:30:28 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:42:23 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ int	longest_sequence(t_seq *seq, t_tab *tab, int size)
 		j = 0;
 		while (j < i)
 		{
-			if (tab->unsort[j] < tab->unsort[i] && seq->tmp[i] < seq->tmp[j] + 1)
+			if (tab->unsort[j] < tab->unsort[i]
+				&& seq->tmp[i] < seq->tmp[j] + 1)
 				seq->tmp[i] = seq->tmp[j] + 1;
 			j++;
 		}
