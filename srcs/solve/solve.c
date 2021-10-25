@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 18:12:46 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:39:36 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:53:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,18 @@ void	print_stacks(t_stack *stack)
 	else
 		printf("Empty\n");
 }
+
+// Test pour push suite la plus longue vers b :
+// Recuperer position acutuelle avec i (deja fait) et autre position a la fin qui sera decrementée pour rra (decrementer a chaque tour ?)
+// Checker a chaque fois si le prochain element a push est plus proche du i ou de la fin
+// Permet d'eviter de parcourir toute la liste inutilement
+
+// Idee pour optimiser recuperation liste la plus longue
+// Trouver la deuxieme liste la plus longue avant ou apres celle deja recuperee
+// Probleme : Savoir si la liste se trouve avant ou apres
+// Entrer la deuxieme liste la plus longue avant ou apres celle deja recuperee pour optimiser encore et push moins d'elements
+// Exemple 100 200 300 400 500 1 2 3 4 5 6 7 8 9
+// Pour l'instant seulement la liste de 1 a 9 est gardee alors que celle de 100 a 500 pourrait aussi l'etre
 
 int	solve(t_tab *tab, t_stack *stack, t_move *move)
 {
