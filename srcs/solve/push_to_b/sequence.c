@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:57:26 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:42:23 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:50:31 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,26 +66,24 @@ int	first_nb(int *tab, int size)
 
 void	keep_longest(t_seq *seq, int size)
 {
-	int	i;
 	int	j;
 	int	last;
 
 	size = last_nb(seq->tmp, size);
-	i = first_nb(seq->tmp, size);
-	last = seq->tmp[i];
-	seq->lis[0] = i;
+	seq->size = seq->tmp[size];
+	seq->lis[seq->size - 1] = size;
+	last = seq->size;
 	j = 1;
-	while (i <= size)
+	while (j < seq->size)
 	{
-		if (seq->tmp[i] == last + 1)
+		if (seq->tmp[size] == last - 1)
 		{
-			seq->lis[j] = i;
+			seq->lis[seq->size - j - 1] = size;
 			j++;
-			last = seq->tmp[i];
+			last--;
 		}
-		i++;
+		size--;
 	}
-	seq->size = j;
 }
 
 int	longest_sequence(t_seq *seq, t_tab *tab, int size)

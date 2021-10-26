@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:36:16 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 13:33:07 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:18:42 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b)
 {
 	int		pos_a;
 	int		pos_b;
+	int		old_number_of_move;
 	int		number_of_move;
-	int		new_number_of_move;
 
 	(void)size_a;
 	(void)size_b;
@@ -52,8 +52,8 @@ int	dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b)
 		return (0);
 	pos_a = 0;
 	pos_b = 0;
+	old_number_of_move = 0;
 	number_of_move = 0;
-	new_number_of_move = 0;
 	while (stack_b)
 	{
 		new_number_of_move = find_a_pos(first_a, size_a, stack_b->target);

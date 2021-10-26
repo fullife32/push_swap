@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 18:12:46 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:53:11 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:10:02 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	print_stacks(t_stack *stack)
 }
 
 // Test pour push suite la plus longue vers b :
+// Si plus proche du debut push avec ra, si plus proche de la fin push avec rra et reverifier liste la plus longue et tout push
 // Recuperer position acutuelle avec i (deja fait) et autre position a la fin qui sera decrementée pour rra (decrementer a chaque tour ?)
 // Checker a chaque fois si le prochain element a push est plus proche du i ou de la fin
 // Permet d'eviter de parcourir toute la liste inutilement
@@ -46,24 +47,18 @@ void	print_stacks(t_stack *stack)
 
 int	solve(t_tab *tab, t_stack *stack, t_move *move)
 {
-	(void)move;
-
 	if (init_stack(tab, stack) == -1)
 		return (-1);
-	// print_stacks(stack);
 	if (push_to_b(&tab->seq, tab, stack) == -1)
 		return (-1);
+	push_to_a(stack, move);
 	// printf("\nsequence : \n");
-	// for(int i = 0; i < tab->seq.size; i++)
-		// printf("%d\n", tab->seq.lis[i]);
+	// for (int i = 0; i < tab->seq.size; i++)
+	// 	printf("%d\n", tab->seq.lis[i]);
 	// printf("sequence size = %d\n", tab->seq.size);
 	// print_stacks(stack);
-	
+
 	// dist_to_a(stack->first_a, stack->first_b, stack->size_a, stack->size_b);
-	// while (stack_is_sorted(&stack->first_a, stack->size_b) == 0)
-	// {
-		
-	// }
 	// tab->seq.size = tab->size;
 	// tabdup(tab->seq.a, tab->unsort, tab->size);
 	// for (int i = 0; i < tab->seq.size; i++)

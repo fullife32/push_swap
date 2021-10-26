@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/25 16:59:58 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/26 15:13:52 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,16 +48,17 @@ SRCS	+=	solve/init_stack/init_stack.c \
 			solve/init_stack/target_stack.c
 
 #	Sort functions
-SRCS	+=	solve/sort/sort.c
+SRCS	+=	solve/is_stack_sorted/is_stack_sorted.c
 
 #	Distance Calculation functions
 SRCS	+=	solve/dist_calcul/dist_to_a.c
 
-#	Push To A functions
-
 #	Push To B functions
 SRCS	+=	solve/push_to_b/push_loop_b.c \
 			solve/push_to_b/sequence.c
+
+#	Push To A functions
+SRCS	+=	solve/push_to_a/push_loop_a.c
 
 # Moves functions
 SRCS	+=	moves/swap.c \
@@ -95,10 +96,10 @@ PATH_DIR	=	main \
 				check \
 				first_sort \
 				solve/init_stack \
-				solve/sort \
+				solve/is_stack_sorted \
 				solve/dist_calcul \
-				solve/push_to_a \
 				solve/push_to_b \
+				solve/push_to_a \
 				moves \
 				free \
 				error \

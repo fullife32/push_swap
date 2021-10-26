@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   reset_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 14:43:33 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:42:36 by eassouli         ###   ########.fr       */
+/*   Created: 2021/10/26 15:38:16 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/26 15:38:28 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_is_sorted(t_elem **first, int size)
+void	reset_moves(t_move *move)
 {
-	int		old_target;
-	t_elem	*elem;
-
-	if (*first == NULL || size != 0)
-		return (0);
-	elem = *first;
-	old_target = elem->target;
-	while (elem)
-	{
-		if (old_target > elem->target)
-			return (0);
-		old_target = elem->target;
-		elem = elem->next;
-	}
-	return (1);
+	move->sa = 0;
+	move->sb = 0;
+	move->ss = 0;
+	move->pa = 0;
+	move->pb = 0;
+	move->ra = 0;
+	move->rb = 0;
+	move->rr = 0;
+	move->rra = 0;
+	move->rrb = 0;
+	move->rrr = 0;
 }

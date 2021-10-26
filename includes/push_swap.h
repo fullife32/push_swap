@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 16:46:34 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:38:41 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,19 +133,21 @@ int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
 
-//	Sort functions
-int		stack_is_sorted(t_elem **first, int size);
+//	Is Stack Sorted functions
+int		is_stack_sorted(t_elem **first, int size);
 
 //	Distance Calculation functions
 int		dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b);
-
-//	Push To A functions
 
 //	Push To B functions
 int		push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
 int		longest_sequence(t_seq *seq, t_tab *tab, int size);
 
+//	Push To A functions
+void	push_to_a(t_stack *stack, t_move *move);
+
 // Moves functions
+void	reset_moves(t_move *move);
 void	swap(t_elem **first, int size);
 void	do_swap(t_stack *stack, int move);
 void	do_push(t_stack *stack, int move);

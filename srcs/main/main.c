@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:32:40 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 15:21:55 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:09:23 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av)
 
 	tab = (t_tab){0, NULL, NULL, (t_seq){0, NULL, NULL}};
 	stack = (t_stack){0, 0, 0, NULL, NULL, NULL, NULL};
+	move = (t_move){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	if (ac < 2) /// Return error if no num ?
 		return (0);
 	if (initial_check(av, &tab) == -1)
