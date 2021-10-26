@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/26 15:38:41 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:46:41 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ typedef struct s_stack
 	struct s_elem	*first_b;
 }				t_stack;
 
+typedef struct s_pos
+{
+	int	a;
+	int	b;
+	int	old_a;
+	int	old_b;
+	int	dist_a;
+	int	dist_b;
+	int	old_dist_a;
+	int	old_dist_b; // Necessaire ou a supprimer
+}				t_pos;
+
 /*
 		-- Stack moves explanation ---
 ** sa : Swap first 2 elements of stack a
@@ -126,7 +138,7 @@ void	insertion_sort(t_tab *tab);
 int		double_num(t_tab *tab);
 
 // Solve functions
-int		solve(t_tab *tab, t_stack *stack, t_move *move);
+int		solve(t_tab *tab, t_stack *stack, t_pos *pos, t_move *move);
 
 //	Init Stack functions
 int		init_stack(t_tab *tab, t_stack *stack);
@@ -134,17 +146,17 @@ t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
 
 //	Is Stack Sorted functions
-int		is_stack_sorted(t_elem **first, int size);
+int		is_stack_sorted(t_elem *first, int size);
 
 //	Distance Calculation functions
-int		dist_to_a(t_elem *first_a, t_elem *stack_b, int size_a, int size_b);
+void	dist_to_a(int size_a, int size_b, t_pos *pos);
 
 //	Push To B functions
 int		push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
 int		longest_sequence(t_seq *seq, t_tab *tab, int size);
 
 //	Push To A functions
-void	push_to_a(t_stack *stack, t_move *move);
+void	push_to_a(t_stack *stack, t_pos *pos, t_move *move);
 
 // Moves functions
 void	reset_moves(t_move *move);
@@ -170,5 +182,7 @@ t_elem	*ft_lstlast(t_elem *lst);
 t_elem	*ft_lstnew(void);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
+
+void	print_stacks(t_stack *stack); //delete
 
 #endif

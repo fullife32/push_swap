@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/26 15:13:52 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/26 18:32:22 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ SRCS	+=	solve/push_to_b/push_loop_b.c \
 SRCS	+=	solve/push_to_a/push_loop_a.c
 
 # Moves functions
-SRCS	+=	moves/swap.c \
+SRCS	+=	moves/reset_moves.c \
+			moves/swap.c \
 			moves/push.c \
 			moves/rotate.c \
 			moves/reverse_rotate.c

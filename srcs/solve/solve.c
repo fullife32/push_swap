@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 18:12:46 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/26 15:10:02 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:37:27 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	print_stacks(t_stack *stack)
 // Exemple 100 200 300 400 500 1 2 3 4 5 6 7 8 9
 // Pour l'instant seulement la liste de 1 a 9 est gardee alors que celle de 100 a 500 pourrait aussi l'etre
 
-int	solve(t_tab *tab, t_stack *stack, t_move *move)
+int	solve(t_tab *tab, t_stack *stack, t_pos *pos, t_move *move)
 {
 	if (init_stack(tab, stack) == -1)
 		return (-1);
 	if (push_to_b(&tab->seq, tab, stack) == -1)
 		return (-1);
-	push_to_a(stack, move);
+	push_to_a(stack, pos, move);
 	// printf("\nsequence : \n");
 	// for (int i = 0; i < tab->seq.size; i++)
 	// 	printf("%d\n", tab->seq.lis[i]);

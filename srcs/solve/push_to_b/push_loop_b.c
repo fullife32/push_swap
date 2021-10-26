@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:40:30 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/25 17:42:14 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:17:52 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack) // do reverse if necessary
 	i = 0;
 	while (i < tab->size)
 	{
-		elem = stack->first_a;
+		elem = stack->first_a; // Utile ?
 		if (is_target(i, seq->size, seq->lis) == 0)
 			do_push(stack, MOVE_PB);
 		else
