@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/26 19:46:41 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 00:26:35 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ enum e_move {
 typedef struct s_seq
 {
 	int	size;
+	int	shift;
 	int	*lis;
 	int	*tmp;
 }				t_seq;

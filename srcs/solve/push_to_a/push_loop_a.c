@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:01:17 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/26 19:57:56 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 01:17:20 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,34 @@ void	reset_pos(t_pos *pos)
 
 void	find_moves(int size_a, int size_b, t_pos *pos, t_move *move)
 {
-	if (pos->old_a < size_a / 2)
-		move->ra = pos->old_a + 1;
-	else if (pos->old_a >= size_a / 2)
+	if (pos->old_a <= size_a / 2)
+		move->ra = pos->old_a;
+	else if (pos->old_a > size_a / 2)
 		move->rra = size_a - pos->old_a;
-	if (pos->old_b < size_b / 2)
+	if (size_b > 0 && pos->old_b <= size_b / 2)
 		move->rb = pos->old_b;
-	else if (pos->old_b >= size_b / 2)
+	else if (size_b > 0 && pos->old_b > size_b / 2)
 		move->rrb = size_b - pos->old_b;
-	if (move->ra != 0 && move->rb != 0)
+	if (move->ra > 0 && move->rb > 0)
 	{
-		if (move->ra > move->rb)
-			move->rr = move->ra - move->rb;
+		if (move->ra < move->rb)
+			move->rr = move->ra;
 		else
-			move->rr = move->rb - move->ra;
+			move->rr = move->rb;
 		move->ra -= move->rr;
 		move->rb -= move->rr;
 	}
-	else if (move->rra != 0 && move->rrb != 0)
+	else if (move->rra > 0 && move->rrb > 0)
 	{
-		if (move->rra > move->rrb)
-			move->rrr = move->rra - move->rrb;
+		if (move->rra < move->rrb)
+			move->rrr = move->rra;
 		else
-			move->rrr = move->rrb - move->rra;
+			move->rrr = move->rrb;
 		move->rra -= move->rrr;
 		move->rrb -= move->rrr;
 	}
-	move->pa = 1;
+	if (size_b > 0)
+		move->pa = 1;
 }
 
 void	exec_moves(t_stack *stack, t_move *move)
@@ -114,6 +115,29 @@ void	find_final_moves(int size_a, t_elem *first_a, t_move *move)
 		move->rra = size_a - i;
 }
 
+int		biggest_target(t_elem *elem, int size)
+{
+	int	i;
+	int	biggest_target;
+	int	biggest_index;
+
+	i = 0;
+	biggest_target = -1;
+	while (elem)
+	{
+		if (elem->target > biggest_target)
+		{
+			biggest_target = elem->target;
+			biggest_index = i;
+		}
+		i++;
+		elem = elem->next;
+	}
+	if (biggest_index == size - 1)
+		return (0);
+	return (biggest_index + 1);
+}
+
 void	find_pos_a(int target, t_stack *stack, t_pos *pos)
 {
 	int		i;
@@ -135,19 +159,20 @@ void	find_pos_a(int target, t_stack *stack, t_pos *pos)
 		i++;
 		stack_a = stack_a->next;
 	}
+	if (near == -1)
+		pos->a = biggest_target(stack->first_a, stack->size_a);
 }
 
 void	dist_to_a(int size_a, int size_b, t_pos *pos)
 {
-	if (pos->a < size_a / 2)
+	if (pos->a <= size_a / 2)
 		pos->dist_a = pos->a;
-	else if (pos->a >= size_a / 2)
+	else if (pos->a > size_a / 2)
 		pos->dist_a = size_a - pos->a;
-	if (pos->b < size_b / 2)
+	if (pos->b <= size_b / 2)
 		pos->dist_b = pos->b;
-	else if (pos->b >= size_b / 2)
+	else if (pos->b > size_b / 2)
 		pos->dist_b = size_b - pos->b;
-	// printf("%d - %d = %d\n", size_b, pos->b, size_b - pos->b);
 }
 
 void	keep_best_pos(int size_a, int size_b, t_pos *pos)
@@ -173,16 +198,15 @@ void	push_to_a(t_stack *stack, t_pos *pos, t_move *move)
 	int i = 0;
 	while (is_stack_sorted(stack->first_a, stack->size_b) == 0)
 	{
-		print_stacks(stack);
-		stack_b = stack->first_a;
+		stack_b = stack->first_b;
 		while (stack_b)
 		{
 			find_pos_a(stack_b->target, stack, pos);
 			keep_best_pos(stack->size_a, stack->size_b, pos);
+			// printf("%d\n", stack_b->target);
 			stack_b = stack_b->next;
 			pos->b++;
 		}
-		// printf("a %d b %d old a %d old b %d da %d db %d old da %d old db %d\n", pos->a, pos->b, pos->old_a, pos->old_b, pos->dist_a, pos->dist_b, pos->old_dist_a, pos->old_dist_b);
 		reset_moves(move);
 		if (stack->first_b == NULL)
 			find_final_moves(stack->size_a, stack->first_a, move);
@@ -190,11 +214,13 @@ void	push_to_a(t_stack *stack, t_pos *pos, t_move *move)
 			find_moves(stack->size_a, stack->size_b, pos, move);
 		// printf("sa %d sb %d ss %d pa %d pb %d ra %d rb %d rr %d rra %d rrb %d rrr %d\n", move->sa, move->sb, move->ss, move->pa, move->pb, move->ra, move->rb, move->rr, move->rra, move->rrb, move->rrr);
 		exec_moves(stack, move);
+		// printf("a %d b %d old a %d old b %d da %d db %d old da %d old db %d\n", pos->a, pos->b, pos->old_a, pos->old_b, pos->dist_a, pos->dist_b, pos->old_dist_a, pos->old_dist_b);
+		// print_stacks(stack);
 		reset_pos(pos);
 		// if (stack->first_b == NULL)
 		// 	return ;
-		if (i == 5)
-			return ;
+		// if (i == 20)
+		// 	return ;
 		i++;
 	}
 }
