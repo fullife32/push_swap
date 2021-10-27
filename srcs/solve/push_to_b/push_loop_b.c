@@ -6,19 +6,17 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:40:30 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 14:45:02 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 21:52:09 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack)
+void	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack)
 {
-	int		i;
-	int		rotate;
+	int	i;
+	int	rotate;
 
-	if (longest_sequence(seq, tab, tab->size) == -1)
-		return (-1);
 	i = 0;
 	set_push_elem(tab->size, seq->size, seq->lis, stack->first_a);
 	while (i < tab->size - seq->size)
@@ -32,5 +30,4 @@ int	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack)
 		do_push(stack, MOVE_PB);
 		i++;
 	}
-	return (0);
 }

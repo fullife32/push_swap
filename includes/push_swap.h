@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 15:09:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 23:22:13 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,8 @@ typedef struct s_move // Transformer en enum et define chaque element
 */
 
 // Check functions
-int		initial_check(char **av, t_tab *tab);
 int		check_args(char **av, t_tab *tab);
+int		double_num(t_tab *tab);
 
 // First Sort functions
 int		first_sort(char **av, t_tab *tab);
@@ -141,7 +141,6 @@ int		create_tab(char **av, t_tab *tab);
 int		*tab_alloc(int size);
 int		*tabdup(int *dest, int *source, int size);
 void	insertion_sort(t_tab *tab);
-int		double_num(t_tab *tab);
 
 // Solve functions
 //	Sort Stack functions
@@ -155,7 +154,7 @@ void	target_stack(t_tab *tab, t_elem *elem);
 void	reset_pos(t_pos *pos);
 
 //	Push To B functions
-int		push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
+void	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
 int		longest_sequence(t_seq *seq, t_tab *tab, int size);
 void	shift_tab(t_seq *seq, t_tab *tab);
 void	unshift_seq(t_seq *seq, int size);
