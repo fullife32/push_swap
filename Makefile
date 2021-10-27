@@ -6,11 +6,13 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/27 15:10:15 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/27 23:37:09 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
+
+NAME_B	=	checker
 
 MKDIR	=	/bin/mkdir -p
 
@@ -24,7 +26,11 @@ INCLUDE	=	-I includes/.
 
 PATH_S	=	srcs/
 
+PATHB_S	=	$(PATH_S)bonus/
+
 PATH_B	=	build/
+
+PATHB_B	=	$(PATH_B)bonus/
 
 # Main functions
 SRCS	+=	main/main.c
@@ -86,14 +92,59 @@ SRCS	+=	utils/ft_atol.c \
 			utils/ft_memcpy.c \
 			utils/ft_memset.c
 
+# Bonus functions
+#	Main function
+SRCS_B	+=	main/main.c
+
+#	Check functions
+SRCS_B	+=	check/check_args.c \
+			check/double_num.c \
+			check/is_stack_sorted.c
+
+#	First Sort functions
+SRCS_B	+=	first_sort/first_sort.c \
+			first_sort/create_tabs.c \
+			first_sort/insertion_sort.c
+
+#	Init Stack functions
+SRCS_B	+=	init_stack/init_stack.c \
+			init_stack/create_stack.c \
+			init_stack/target_stack.c
+
+#	Free functions
+SRCS_B	+=	free/free_push_swap.c
+
+#	Error functions
+SRCS_B	+=	error/error.c
+
+#	Utils functions
+SRCS_B	+=	utils/get_next_line.c \
+			utils/get_next_line_utils.c \
+			utils/ft_atol.c \
+			utils/ft_lstadd_back.c \
+			utils/ft_lstadd_front.c \
+			utils/ft_lstclear.c \
+			utils/ft_lstdelone.c \
+			utils/ft_lstlast.c \
+			utils/ft_lstnew.c \
+			utils/ft_memcpy.c \
+			utils/ft_memset.c
+
 OBJS	=	$(addprefix $(PATH_B), $(SRCS:.c=.o))
+
+OBJS_B	=	$(addprefix $(PATHB_B), $(SRCS_B:.c=.o))
 
 CFLAGS	=	-g -Wall -Wextra -Werror $(INCLUDE)
 
 all:	$(PATH_B) $(NAME)
 
+bonus:	$(PATHB_B) $(NAME_B)
+
 $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
+
+$(NAME_B):	$(OBJS_B)
+	$(CC) $(OBJS_B) $(CFLAGS) -o $(NAME_B)
 
 PATH_DIR	=	main \
 				check \
@@ -107,21 +158,39 @@ PATH_DIR	=	main \
 				error \
 				utils
 
+PATH_DIR_B	=	main \
+				check \
+				first_sort \
+				init_stack \
+				moves \
+				free \
+				error \
+				utils
+
 $(PATH_B):
 	$(MKDIR) $(PATH_B)
 	for dir in $(PATH_DIR) ; do \
 		$(MKDIR) $(PATH_B)$$dir ; \
 	done
 
+$(PATHB_B):
+	$(MKDIR) $(PATHB_B)
+	for dir in $(PATH_DIR_B) ; do \
+		$(MKDIR) $(PATHB_B)$$dir ; \
+	done
+
 $(PATH_B)%.o:	$(PATH_S)%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
+$(PATHB_B)%.o:	$(PATHB_S)%.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
 clean:
-	$(RM) $(PATH_B)
+	$(RM) $(PATH_B) $(PATHB_B)
 
 fclean:	clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_B)
 
 re:	fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus
