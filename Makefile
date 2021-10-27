@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/26 18:32:22 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/27 15:10:15 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,8 @@ PATH_B	=	build/
 # Main functions
 SRCS	+=	main/main.c
 
-# Initial Check functions
-SRCS	+=	check/initial_check.c \
-			check/check_args.c \
+# Check functions
+SRCS	+=	check/check_args.c \
 			check/double_num.c
 
 # First Sort functions
@@ -40,32 +39,35 @@ SRCS	+=	first_sort/first_sort.c \
 			first_sort/insertion_sort.c
 
 # Solve funtions
-SRCS	+=	solve/solve.c
+#	Sort Stack function
+SRCS	+=	solve/sort_stack/solve.c \
+			solve/sort_stack/is_stack_sorted.c
 
 #	Init Stack functions
 SRCS	+=	solve/init_stack/init_stack.c \
 			solve/init_stack/create_stack.c \
-			solve/init_stack/target_stack.c
-
-#	Sort functions
-SRCS	+=	solve/is_stack_sorted/is_stack_sorted.c
-
-#	Distance Calculation functions
-SRCS	+=	solve/dist_calcul/dist_to_a.c
+			solve/init_stack/target_stack.c \
+			solve/init_stack/reset_pos.c
 
 #	Push To B functions
 SRCS	+=	solve/push_to_b/push_loop_b.c \
-			solve/push_to_b/sequence.c
+			solve/push_to_b/sequence.c \
+			solve/push_to_b/shift_sequence.c \
+			solve/push_to_b/dist_to_b.c
 
 #	Push To A functions
-SRCS	+=	solve/push_to_a/push_loop_a.c
+SRCS	+=	solve/push_to_a/push_loop_a.c \
+			solve/push_to_a/find_pos_a.c \
+			solve/push_to_a/dist_to_a.c
 
 # Moves functions
 SRCS	+=	moves/reset_moves.c \
 			moves/swap.c \
 			moves/push.c \
 			moves/rotate.c \
-			moves/reverse_rotate.c
+			moves/reverse_rotate.c \
+			moves/find_moves.c \
+			moves/exec_moves.c
 
 # Free functions
 SRCS	+=	free/free_push_swap.c
@@ -96,9 +98,8 @@ $(NAME):	$(OBJS)
 PATH_DIR	=	main \
 				check \
 				first_sort \
+				solve/sort_stack \
 				solve/init_stack \
-				solve/is_stack_sorted \
-				solve/dist_calcul \
 				solve/push_to_b \
 				solve/push_to_a \
 				moves \

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 02:47:56 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 15:09:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,11 @@ typedef struct s_pos
 	int	dist_a;
 	int	dist_b;
 	int	old_dist_a;
-	int	old_dist_b; // Necessaire ou a supprimer
+	int	old_dist_b;
+	int	up_a;
+	int	up_b;
+	int	old_up_a;
+	int	old_up_b;
 }				t_pos;
 
 /*
@@ -127,7 +131,7 @@ typedef struct s_move // Transformer en enum et define chaque element
 ** Prototypes **
 */
 
-// Initial Check functions
+// Check functions
 int		initial_check(char **av, t_tab *tab);
 int		check_args(char **av, t_tab *tab);
 
@@ -140,25 +144,29 @@ void	insertion_sort(t_tab *tab);
 int		double_num(t_tab *tab);
 
 // Solve functions
+//	Sort Stack functions
 int		solve(t_tab *tab, t_stack *stack, t_pos *pos, t_move *move);
+int		is_stack_sorted(t_elem *first, int size);
 
 //	Init Stack functions
 int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
-
-//	Is Stack Sorted functions
-int		is_stack_sorted(t_elem *first, int size);
-
-//	Distance Calculation functions
-void	dist_to_a(int size_a, int size_b, t_pos *pos);
+void	reset_pos(t_pos *pos);
 
 //	Push To B functions
 int		push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
 int		longest_sequence(t_seq *seq, t_tab *tab, int size);
+void	shift_tab(t_seq *seq, t_tab *tab);
+void	unshift_seq(t_seq *seq, int size);
+void	set_push_elem(int size, int lis_size, int *lis, t_elem *elem);
+int		next_elem_to_push(t_elem *elem);
 
 //	Push To A functions
 void	push_to_a(t_stack *stack, t_pos *pos, t_move *move);
+void	find_pos_a(int target, t_stack *stack, t_pos *pos);
+void	dist_to_a(int size_a, int size_b, t_pos *pos);
+void	keep_best_pos(int size_a, int size_b, t_pos *pos);
 
 // Moves functions
 void	reset_moves(t_move *move);
@@ -167,6 +175,9 @@ void	do_swap(t_stack *stack, int move);
 void	do_push(t_stack *stack, int move);
 void	do_rotate(t_stack *stack, int move);
 void	do_reverse_rotate(t_stack *stack, int move);
+void	find_moves(int size_a, int size_b, t_pos *pos, t_move *move);
+void	find_final_moves(int size_a, t_elem *first_a, t_move *move);
+void	exec_moves(t_stack *stack, t_move *move);
 
 // Free fuctions
 int		free_push_swap(t_tab *tab, t_stack *stack);

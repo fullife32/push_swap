@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:42:15 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/22 14:36:50 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 15:06:04 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,5 @@ int	first_sort(char **av, t_tab *tab)
 	insertion_sort(tab);
 	if (double_num(tab) == -1)
 		return (-1);
-	// printf("UNSORTED\n");
-	// for (int a = 0; a < tab->size; a++)
-	// 	printf("%d : %d\n", a, tab->unsort[a]);
-	// printf("SORTED\n");
-	// for (int a = 0; a < tab->size; a++)
-	// 	printf("%d : %d\n", a, tab->sort[a]);
 	return (0);
 }
