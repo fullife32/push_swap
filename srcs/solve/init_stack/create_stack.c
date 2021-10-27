@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 10:42:27 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/20 18:01:08 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 02:46:28 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_elem	*init_elem(void)
 	t_elem	*elem;
 
 	elem = ft_lstnew();
+	if (elem != NULL)
+		elem->push = 0;
 	return (elem);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 00:26:35 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/27 02:47:56 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_tab
 typedef struct s_elem
 {
 	int				target;
+	int				push;
 	struct s_elem	*next;
 }				t_elem;
 
