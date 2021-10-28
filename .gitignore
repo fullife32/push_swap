@@ -53,3 +53,4 @@ dkms.conf
 
 # Directories and executable
 push_swap
+checker
