@@ -6,11 +6,11 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:33 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 15:07:41 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:35:15 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	is_stack_sorted(t_elem *first, int size)
 {

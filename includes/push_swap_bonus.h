@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 21:46:57 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:32:31 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/28 21:44:06 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,12 @@ typedef struct s_stack
 	struct s_elem	*first_b;
 }				t_stack;
 
+typedef struct s_inst
+{
+	int		move;
+	char	*line;
+}				t_inst;
+
 /*
 ** Prototypes **
 */
@@ -94,6 +100,9 @@ int		init_stack(t_tab *tab, t_stack *stack);
 t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
 
+// Instruction loop functions
+int		inst_loop(t_stack *stack, t_inst *inst);
+
 // Moves functions
 void	swap(t_elem **first, int size);
 void	do_swap(t_stack *stack, int move);
@@ -103,10 +112,11 @@ void	do_reverse_rotate(t_stack *stack, int move);
 void	exec_moves(t_stack *stack, int move);
 
 // Free fuctions
-int		free_push_swap(t_tab *tab, t_stack *stack);
+int		free_push_swap(t_tab *tab, t_stack *stack, t_inst *inst);
+void	free_inst(char **line);
 
 // Error functions
-int		error(t_tab *tab, t_stack *stack);
+int		error(t_tab *tab, t_stack *stack, t_inst *inst);
 
 // Utils functions
 long	ft_atol(const char *str);

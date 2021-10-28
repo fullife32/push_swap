@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:22:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:26:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ typedef struct s_pos
 ** rrr : rra && rrb
 */
 
-typedef struct s_move // Transformer en enum et define chaque element
+typedef struct s_move
 {
 	int	sa;
 	int	sb;

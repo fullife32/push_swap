@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:05:34 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:08:39 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:30:07 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,19 @@ void	free_tab(int *tab)
 	tab = NULL;
 }
 
-int	free_push_swap(t_tab *tab, t_stack *stack)
+void	free_inst(char **line)
+{
+	if (*line)
+		free(*line);
+	*line = NULL;
+}
+
+int	free_push_swap(t_tab *tab, t_stack *stack, t_inst *inst)
 {
 	free_tab(tab->sort);
 	free_tab(tab->unsort);
 	free_stack(&stack->first_a);
 	free_stack(&stack->first_b);
+	free_inst(&inst->line);
 	return (0);
 }
