@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 14:20:42 by eassouli          #+#    #+#              #
-#    Updated: 2021/10/28 19:50:01 by eassouli         ###   ########.fr        #
+#    Updated: 2021/10/29 17:11:11 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,12 @@ SRCS	+=	solve/init_stack/init_stack.c \
 			solve/init_stack/create_stack.c \
 			solve/init_stack/target_stack.c \
 			solve/init_stack/reset_pos.c
+
+#	Little Stack functions	#
+SRCS	+=	solve/little_stack/little_stack.c \
+			solve/little_stack/stack_3.c \
+			solve/little_stack/stack_4.c \
+			solve/little_stack/stack_5.c \
 
 #	Push To B functions	#
 SRCS	+=	solve/push_to_b/push_loop_b.c \
@@ -113,7 +119,8 @@ SRCS_B	+=	init_stack/init_stack.c \
 			init_stack/target_stack.c
 
 #	Instruction loop functions	#
-SRCS_B	+=	inst_loop/inst_loop.c
+SRCS_B	+=	inst_loop/inst_loop.c \
+			inst_loop/check_inst.c
 
 #	Moves functions	#
 SRCS_B	+=	moves/exec_moves.c \
@@ -162,6 +169,7 @@ PATH_DIR	=	main \
 				first_sort \
 				solve/sort_stack \
 				solve/init_stack \
+				solve/little_stack \
 				solve/push_to_b \
 				solve/push_to_a \
 				moves \

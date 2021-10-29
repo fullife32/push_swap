@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:10 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/28 19:26:11 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/29 17:48:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,13 @@ t_elem	*create_stack(t_tab *tab, t_stack *stack);
 void	target_stack(t_tab *tab, t_elem *elem);
 void	reset_pos(t_pos *pos);
 
+// Little Stack functions
+void	little_stack(t_stack *stack);
+void	push_smallest(t_stack *stack, int smallest);
+void	stack_three(t_stack *stack);
+void	stack_four(t_stack *stack);
+void	stack_five(t_stack *stack);
+
 //	Push To B functions
 void	push_to_b(t_seq *seq, t_tab *tab, t_stack *stack);
 int		longest_sequence(t_seq *seq, t_tab *tab, int size);
@@ -194,7 +201,5 @@ t_elem	*ft_lstlast(t_elem *lst);
 t_elem	*ft_lstnew(void);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
-
-void	print_stacks(t_stack *stack); //delete
 
 #endif

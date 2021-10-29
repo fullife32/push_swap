@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_loop.c                                        :+:      :+:    :+:   */
+/*   stack_4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 19:31:57 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/29 17:00:12 by eassouli         ###   ########.fr       */
+/*   Created: 2021/10/29 17:04:15 by eassouli          #+#    #+#             */
+/*   Updated: 2021/10/29 17:40:25 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "push_swap.h"
 
-int	inst_loop(t_stack *stack, t_inst *inst)
+void	stack_four(t_stack *stack)
 {
-	while (get_next_line(0, &inst->line) == 1)
-	{
-		if (check_inst(inst) == -1)
-			return (-1);
-		exec_moves(stack, inst->move);
-		free_inst(&inst->line);
-	}
-	return (0);
+	push_smallest(stack, 0);
+	if (is_stack_sorted(stack->first_a, 0) == 0)
+		stack_three(stack);
+	do_push(stack, MOVE_PA);
 }

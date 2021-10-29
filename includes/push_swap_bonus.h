@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 21:46:57 by eassouli          #+#    #+#             */
-/*   Updated: 2021/10/28 21:44:06 by eassouli         ###   ########.fr       */
+/*   Updated: 2021/10/29 17:00:39 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 ** Includes **
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "get_next_line.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "get_next_line.h"
 
 /*
 ** Defines **
@@ -102,6 +102,7 @@ void	target_stack(t_tab *tab, t_elem *elem);
 
 // Instruction loop functions
 int		inst_loop(t_stack *stack, t_inst *inst);
+int		check_inst(t_inst *inst);
 
 // Moves functions
 void	swap(t_elem **first, int size);
